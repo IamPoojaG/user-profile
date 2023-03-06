@@ -32,7 +32,7 @@ function Registration() {
     };
 
     axios
-      .post('http://localhost:8081/users/add', newUser)
+      .post('http://localhost:10000/users/add', newUser)
       .then((res) => {
         if (res.data.success) {
           setLogin(!login);

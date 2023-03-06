@@ -21,7 +21,7 @@ function Table() {
 
   useEffect(() => {
     const getUserdata = async () => {
-      const reqData = await fetch('http://localhost:8081/users');
+      const reqData = await fetch('http://localhost:10000/users');
       const resData = await reqData.json();
       setUser(resData.users);
       console.log(resData);
@@ -43,7 +43,7 @@ function Table() {
   const deleteUser = (id) => {
     setUser(user.filter((user) => user._id !== id));
     axios
-      .delete(`http://localhost:8081/users/${id}`)
+      .delete(`http://localhost:10000/users/${id}`)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };
