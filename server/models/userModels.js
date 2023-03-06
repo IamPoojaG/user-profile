@@ -4,27 +4,20 @@ const modelSchema = mongoose.Schema(
   {
     firstName: {
       type: String,
-      required: true,
     },
     lastName: {
       type: String,
-      required: true,
     },
     email: {
       type: String,
-      required: true,
     },
     password: {
       type: String,
-      required: true,
     },
-    name: String,
     img: {
-      data: Buffer,
-      contentType: String,
+      type: String,
     },
   },
-
   {
     timestamps: true,
   }

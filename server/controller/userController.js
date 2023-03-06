@@ -1,8 +1,9 @@
 import Profile from '../models/userModels.js';
-
+import multer from 'multer';
+import fs from 'fs';
 export const createUser = (req, res) => {
   const { id, firstName, lastName, email, password, img } = req.body;
-
+  const users = Profile.find().then((users) => users);
   const newProfile = new Profile({
     id,
     firstName,
@@ -10,7 +11,9 @@ export const createUser = (req, res) => {
     email,
     password,
     img,
-  })
+  });
+  console.log(newProfile);
+  newProfile
     .save()
     .then(() =>
       res.status(201).json({ success: true, msg: 'User created successfully' })
@@ -39,7 +42,7 @@ export const updateUser = (req, res) => {
       user.lastName = req.body.lastName;
       user.email = req.body.email;
       user.password = req.body.password;
-
+      user.img = req.body.img;
       user
         .save()
         .then(() =>
