@@ -32,8 +32,9 @@ function Registration() {
     };
 
     axios
-      .post('http://localhost:10000/users/add', newUser)
+      .post('https://githubuserprofile544.onrender.com/users/add', newUser)
       .then((res) => {
+        console.log(res);
         if (res.data.success) {
           setLogin(!login);
         }

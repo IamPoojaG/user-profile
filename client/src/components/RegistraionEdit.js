@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, ListGroupItem } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import Login from './Login';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -18,7 +18,9 @@ function RegistrationEdit() {
   useEffect(() => {
     console.log(id);
     const getUser = async () => {
-      const reqData = await fetch(`http://localhost:8081/users/${id}`);
+      const reqData = await fetch(
+        `https://githubuserprofile544.onrender.com/users/${id}`
+      );
       const resData = await reqData.json();
       const data = resData.user;
       console.log(data.firstName);
@@ -33,7 +35,7 @@ function RegistrationEdit() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    if (!firstName || !lastName || !email || !password || img) {
+    if (!firstName || !lastName || !email || !password || !img) {
       setFlag(true);
     } else {
       setFlag(false);
@@ -48,7 +50,7 @@ function RegistrationEdit() {
     };
 
     axios
-      .put(`http://localhost:8081/users/${id}`, newUser)
+      .put(`https://githubuserprofile544.onrender.com/users/${id}`, newUser)
       .then((res) => {
         console.log(res);
         if (res.data.success) {

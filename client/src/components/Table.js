@@ -21,7 +21,9 @@ function Table() {
 
   useEffect(() => {
     const getUserdata = async () => {
-      const reqData = await fetch('http://localhost:10000/users');
+      const reqData = await fetch(
+        'https://githubuserprofile544.onrender.com/users'
+      );
       const resData = await reqData.json();
       setUser(resData.users);
       console.log(resData);
@@ -43,7 +45,7 @@ function Table() {
   const deleteUser = (id) => {
     setUser(user.filter((user) => user._id !== id));
     axios
-      .delete(`http://localhost:10000/users/${id}`)
+      .delete(`https://githubuserprofile544.onrender.com/users/${id}`)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };
