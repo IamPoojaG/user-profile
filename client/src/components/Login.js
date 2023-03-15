@@ -21,13 +21,20 @@ function Login() {
     } else {
       setHome(!home);
       setFlag(false);
-      navigate('/table');
     }
+  }
+  function handleClick() {
+    navigate('/table');
   }
 
   return (
     <div>
       <form onSubmit={handleLogin}>
+        {flag && (
+          <Alert color='primary' variant='warning'>
+            Fill correct Info else keep trying.
+          </Alert>
+        )}
         <h3>LogIn</h3>
         <div className='form-group'>
           <label>Email</label>
@@ -49,15 +56,13 @@ function Login() {
           />
         </div>
 
-        <button type='submit' className='btn btn-dark btn-lg btn-block'>
+        <button
+          type='submit'
+          className='btn btn-dark btn-lg btn-block'
+          onClick={handleClick}
+        >
           Login
         </button>
-
-        {flag && (
-          <Alert color='primary' variant='warning'>
-            Fill correct Info else keep trying.
-          </Alert>
-        )}
       </form>
     </div>
   );
