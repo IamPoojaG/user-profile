@@ -1,6 +1,6 @@
 Project live link:
 
-### [link](https://user-profile-2xbp.vercel.app)
+### [link](https://user-profile-poojag.netlify.app/)
 
 # Getting Started with Create React App
 
